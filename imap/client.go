@@ -456,6 +456,8 @@ func (c *Client) update(rsp *Response) {
 				c.Logf(LogState, "Mailbox UIDVALIDITY change: %d -> %d", u, v)
 			}
 			c.Mailbox.UIDValidity = v
+		case "HIGHESTMODSEQ":
+			c.Mailbox.HighestModSeq = rsp.Value()
 		case "UNSEEN":
 			c.Mailbox.Unseen = rsp.Value()
 		case "UIDNOTSTICKY":

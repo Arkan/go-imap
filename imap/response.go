@@ -156,16 +156,17 @@ func (rsp *Response) MailboxInfo() *MailboxInfo {
 // currently selected mailbox. Fields that are only set by the Client are marked
 // as client-only.
 type MailboxStatus struct {
-	Name         string  // Mailbox name
-	ReadOnly     bool    // Mailbox read/write access (client-only)
-	Flags        FlagSet // Defined flags in the mailbox (client-only)
-	PermFlags    FlagSet // Flags that the client can change permanently (client-only)
-	Messages     uint32  // Number of messages in the mailbox
-	Recent       uint32  // Number of messages with the \Recent flag set
-	Unseen       uint32  // Sequence number of the first unseen message
-	UIDNext      uint32  // The next unique identifier value
-	UIDValidity  uint32  // The unique identifier validity value
-	UIDNotSticky bool    // UIDPLUS extension (client-only)
+	Name          string  // Mailbox name
+	ReadOnly      bool    // Mailbox read/write access (client-only)
+	Flags         FlagSet // Defined flags in the mailbox (client-only)
+	PermFlags     FlagSet // Flags that the client can change permanently (client-only)
+	Messages      uint32  // Number of messages in the mailbox
+	Recent        uint32  // Number of messages with the \Recent flag set
+	Unseen        uint32  // Sequence number of the first unseen message
+	UIDNext       uint32  // The next unique identifier value
+	UIDValidity   uint32  // The unique identifier validity value
+	UIDNotSticky  bool    // UIDPLUS extension (client-only)
+	HighestModSeq uint32  // CONDSTORE extension
 }
 
 // newMailboxStatus returns an initialized MailboxStatus instance.
